@@ -5,9 +5,9 @@
 #include <iostream>
 #include <cmath>
 //PROTOTIPO DE FUNCIONES
-void ingreso_coeficientes(int& coea, int& coeb, int& coec);
-void operaciones(int& coea, int& coeb, int& coec, float& disc, float& sol1, float& sol2);
-void impresion_resultados(float& disc, float& sol1, float& sol2);
+void ingreso_coeficientes(int &coea, int &coeb, int &coec);
+void operaciones(int &coea, int &coeb, int &coec, float &disc, float &sol1, float &sol2);
+void impresion_resultados(float &disc, float &sol1, float &sol2);
 //FUNCION MAIN
 int main()
 {
@@ -23,45 +23,50 @@ int main()
     operaciones(Coea, Coeb, Coec, Disc, Sol1, Sol2);
     impresion_resultados(Disc, Sol1, Sol2);
     
-    printf("ax^2 + bx + c = 0");
-    
     return(0);
 }
 
 //DESARROLLO DE FUNCIONES
 
-void ingreso_coeficientes(int& coea, int& coeb, int& coec)
+void ingreso_coeficientes(int &coea, int &coeb, int &coec)
 {
-    int auxi = 0;
-    //INGRESO DEL VALOR DE "A"
+    char auxi[3];
+    printf("ax^2 + bx + c = 0");
+    //INGRESO DEL VALOR DE "a"
     printf("\nIngrese el valor del coeficiente a: ");
     gets(auxi);
     coea = atoi(auxi);
-    //INGRESO DEL VALOR DE "B"
+    //INGRESO DEL VALOR DE "b"
     printf("\nIngrese el valor del coeficiente b: ");
     gets(auxi);
     coeb = atoi(auxi);
-    //INGRESO DEL VALOR DE "C"
+    //INGRESO DEL VALOR DE "c"
     printf("\nIngrese el valor del coeficiente c: ");
     gets(auxi);
     coec = atoi(auxi);
 }
 
-void operaciones(int& coea, int& coeb, int& coec, float& disc, float& sol1, float& sol2)
+void operaciones(int &coea, int &coeb, int &coec, float &disc, float &sol1, float &sol2)
 {
     //CALCULO DEL DISCRIMINANTE
-    float disc = sqrt( pow(coeb, 2) - (4 * coea * coec) );
+    disc = sqrt( pow(coeb, 2) - (4 * coea * coec) );
     //CALCULO DE LAS SOLUCIONES
-    float sol1 = (-num2 - disc) / (2 * num1);
-    float sol2 = (-num2 + disc) / (2 * num1);
+    sol1 = (-num2 - disc) / (2 * num1);
+    sol2 = (-num2 + disc) / (2 * num1);
 }
 
-void impresion_resultados(float& disc, float& sol1, float& sol2)
+void impresion_resultados(float &disc, float &sol1, float &sol2)
 {
-    if(disc == 0){
-        
+    if(disc < 0)
+    {
+        printf("\nLa ecuacion no tiene soluciones reales.");
     }
-    printf("\nLas soluciones de la ecuacion es: ");
-    printf("\nx_1 = ");
-    printf("\nx_2 = ");
+    else if(disc = 0)
+    {
+        printf("\nLa ecuacion tiene una solucion.\nx = %f.2", sol1);
+    }
+    else
+    {
+        printf("\nLa ecuacion tiene dos soluciones.\nx_1 = %f.2\nx_2 = %f.2", sol1, sol2);
+    }    
 }
