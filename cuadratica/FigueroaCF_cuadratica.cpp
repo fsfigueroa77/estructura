@@ -36,10 +36,10 @@ int main()
 	int Coef[3]; //arreglo para los valores de los coeficientes de la ecuacion cuadratica
 	bool Repe = true; //variable que controla la repeticion del programa
 	float Disc; //variable que representa el discriminante de la formula general
-    float Sol1; //solucion real 1
-    float Sol2; //solucion real 2
-    float Srea; //parte real solucion 1 y 2 NUEVA VERSION CON NUMEROS IMAGINARIOS
-    float Sima; //parte imaginaria solucion 1 y 2 imaginaria NUEVA VERSION CON NUMEROS IMAGINARIOS    
+	float Sol1; //solucion real 1
+	float Sol2; //solucion real 2
+	float Srea; //parte real solucion 1 y 2 NUEVA VERSION CON NUMEROS IMAGINARIOS
+	float Sima; //parte imaginaria solucion 1 y 2 imaginaria NUEVA VERSION CON NUMEROS IMAGINARIOS    
 	//DESARROLLO DEL PROGRAMA
 	while(Repe)
 	{	
@@ -55,16 +55,16 @@ int main()
 //DESARROLLO DE FUNCIONES
 void ajustar_ventana(int ancho, int alto) //funcion Fuente: ChatGPT
 {
-    // Obtiene el identificador de la consola
-    HANDLE hConsola = GetStdHandle(STD_OUTPUT_HANDLE);    
-    // Ajusta el tamaño del búfer de pantalla
+	// Obtiene el identificador de la consola
+	HANDLE hConsola = GetStdHandle(STD_OUTPUT_HANDLE);    
+	// Ajusta el tamaño del búfer de pantalla
 	COORD bufferSize;
-    bufferSize.X = ancho + 1;  //Agrega 1 para evitar desplazamiento
-    bufferSize.Y = alto + 1;
-    SetConsoleScreenBufferSize(hConsola, bufferSize);    
-    // Ajusta el tamaño de la ventana
-    SMALL_RECT windowSize = {0, 0, ancho, alto};
-    SetConsoleWindowInfo(hConsola, TRUE, &windowSize);
+	bufferSize.X = ancho + 1;  //Agrega 1 para evitar desplazamiento
+	bufferSize.Y = alto + 1;
+	SetConsoleScreenBufferSize(hConsola, bufferSize);    
+	// Ajusta el tamaño de la ventana
+	SMALL_RECT windowSize = {0, 0, ancho, alto};
+	SetConsoleWindowInfo(hConsola, TRUE, &windowSize);
 }
 void presentacion() //funcion que controla el aspecto grafico del programa
 {
@@ -102,11 +102,11 @@ void ingreso_valores(int (&coef)[3]) //funcion que pide al usuario los valores d
 }
 void operaciones(int (&coef)[3], float &disc, float &sol1, float &sol2) //funcion que hace las operaciones de la formula general
 {
-    //CALCULO DEL DISCRIMINANTE
-    disc = pow(coef[1], 2) - (4 * coef[0] * coef[2]);
-    //CALCULO DE LAS SOLUCIONES
-    sol1 = (-coef[1] - sqrt(disc)) / (2 * coef[0]);
-    sol2 = (-coef[1] + sqrt(disc)) / (2 * coef[0]);
+	//CALCULO DEL DISCRIMINANTE
+	disc = pow(coef[1], 2) - (4 * coef[0] * coef[2]);
+	//CALCULO DE LAS SOLUCIONES
+	sol1 = (-coef[1] - sqrt(disc)) / (2 * coef[0]);
+	sol2 = (-coef[1] + sqrt(disc)) / (2 * coef[0]);
 }
 void operaciones_imaginarias(int (&coef)[3], float &disc, float &srea, float &sima) //funcion que hace las operaciones cuando el discrimiante es negativo y por lo tanto las soluciones entran en el campo de los numeros complejos
 {
@@ -115,35 +115,35 @@ void operaciones_imaginarias(int (&coef)[3], float &disc, float &srea, float &si
 }
 void impresion_resultados(float &disc, float &sol1, float &sol2, float &srea, float &sima, int (&coef)[3]) //funcion que imprime por pantalla las soluciones de la ecuacion sean reales o imaginarias
 {
-    CONT = 4; //Reseteo de la variable global
+	CONT = 4; //Reseteo de la variable global
 	presentacion();	
 	gotoxy(2, ++CONT); printf("La ecuacion %sx^2 %sx %s = 0\n", imprimir_coeficiente(coef[0]), imprimir_coeficiente(coef[1]), imprimir_coeficiente(coef[2]));
 	if(disc < 0)
-    {
-        gotoxy(2, ++CONT); printf("No tiene soluciones en los numeros reales.");
-        gotoxy(2, ++CONT); printf("x_1 = %.2f + %.2fi", srea, sima);
-        gotoxy(2, ++CONT); printf("x_2 = %.2f - %.2fi", srea, sima);
-    }
-    else if(disc == 0)
-    {
-        gotoxy(2, ++CONT); printf("Tiene solamente una solucion real.");
-        gotoxy(2, ++CONT); printf("x = %.2f", sol1);
-    }
-    else if(coef[0] == 0)
-    {
-    	gotoxy(2, ++CONT); printf("No es cuadratica (A no debe ser igual a 0).");
+	{
+		gotoxy(2, ++CONT); printf("No tiene soluciones en los numeros reales.");
+		gotoxy(2, ++CONT); printf("x_1 = %.2f + %.2fi", srea, sima);
+		gotoxy(2, ++CONT); printf("x_2 = %.2f - %.2fi", srea, sima);
 	}
-    else
-    {
-        gotoxy(2, ++CONT); printf("Tiene dos soluciones reales distintas.");
-        gotoxy(2, ++CONT); printf("x_1 = %.2f", sol1);
-        gotoxy(2, ++CONT); printf("x_2 = %.2f", sol2);
-    }
-    free(imprimir_coeficiente(coef[0])); //Fuente: ChatGPT
-    free(imprimir_coeficiente(coef[1])); //Fuente: ChatGPT
-    free(imprimir_coeficiente(coef[2])); //Fuente: ChatGPT
-    gotoxy(2, 23); printf("Presione [ENTER] para continuar...");
-    getche();
+	else if(disc == 0)
+	{
+		gotoxy(2, ++CONT); printf("Tiene solamente una solucion real.");
+		gotoxy(2, ++CONT); printf("x = %.2f", sol1);
+	}
+	else if(coef[0] == 0)
+	{
+		gotoxy(2, ++CONT); printf("No es cuadratica (A no debe ser igual a 0).");
+	}
+	else
+	{
+		gotoxy(2, ++CONT); printf("Tiene dos soluciones reales distintas.");
+		gotoxy(2, ++CONT); printf("x_1 = %.2f", sol1);
+		gotoxy(2, ++CONT); printf("x_2 = %.2f", sol2);
+	}
+	free(imprimir_coeficiente(coef[0])); //Fuente: ChatGPT
+	free(imprimir_coeficiente(coef[1])); //Fuente: ChatGPT
+	free(imprimir_coeficiente(coef[2])); //Fuente: ChatGPT
+	gotoxy(2, 23); printf("Presione [ENTER] para continuar...");
+	getche();
 }
 void repeticion(bool &repe) //funcion que pregunta al usuario si se desea salir o ingresar otra ecuacion
 {
@@ -188,9 +188,9 @@ void cuadro(int x1,int y1,int x2,int y2) //Fuente Video de youtube: https://www.
 		gotoxy(x2,i); printf("\263"); //linea vertical derecha
 	}	
 	gotoxy(x1,y1); printf("\332");
-    gotoxy(x1,y2); printf("\300");
-    gotoxy(x2,y1); printf("\277");
-    gotoxy(x2,y2); printf("\331");
+	gotoxy(x1,y2); printf("\300");
+	gotoxy(x2,y1); printf("\277");
+	gotoxy(x2,y2); printf("\331");
 }
 void gotoxy(int x,int y) //Fuente Video de youtube: https://www.youtube.com/watch?app=desktop&v=H2BZqEPVKYE
 {  
