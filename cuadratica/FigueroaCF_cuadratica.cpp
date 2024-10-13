@@ -31,7 +31,7 @@ int CONT = 4; //variable que da la posicion en 'y' de la cordenada en pantalla
 //FUNCION MAIN
 int main()
 {
-	ajustar_ventana(78, 24); //llamada de funcion que regula el tamaño de la ventana de ejecucion
+	ajustar_ventana(78, 24); //llamada de funcion que regula el tamaÃ±o de la ventana de ejecucion
 	//DECLARACION DE VARIABLES
 	int Coef[3]; //arreglo para los valores de los coeficientes de la ecuacion cuadratica
 	bool Repe = true; //variable que controla la repeticion del programa
@@ -57,12 +57,12 @@ void ajustar_ventana(int ancho, int alto) //funcion Fuente: ChatGPT
 {
     // Obtiene el identificador de la consola
     HANDLE hConsola = GetStdHandle(STD_OUTPUT_HANDLE);    
-    // Ajusta el tamaño del búfer de pantalla
+    // Ajusta el tamaÃ±o del bÃºfer de pantalla
 	COORD bufferSize;
     bufferSize.X = ancho + 1;  //Agrega 1 para evitar desplazamiento
     bufferSize.Y = alto + 1;
     SetConsoleScreenBufferSize(hConsola, bufferSize);    
-    // Ajusta el tamaño de la ventana
+    // Ajusta el tamaÃ±o de la ventana
     SMALL_RECT windowSize = {0, 0, ancho, alto};
     SetConsoleWindowInfo(hConsola, TRUE, &windowSize);
 }
@@ -71,7 +71,7 @@ void presentacion() //funcion que controla el aspecto grafico del programa
 	system("cls"); //limpia el contenido de la ventana de ejecucion
 	system("color E0"); //regula el color de fondo (E = amarillo claro) y el color de fuente (0 = Negro). Fuente Video de youtube: https://www.youtube.com/watch?app=desktop&v=H2BZqEPVKYE
 	cuadro(0, 0, 78, 24); //imprime un marco grande
-	cuadro(1, 1, 77, 3); //imprime un marco pequeño
+	cuadro(1, 1, 77, 3); //imprime un marco pequeÃ±o
 	gotoxy(10, 2); printf("PROGRAMA PARA OBTENER LAS RAICES DE UNA ECUACION CUADRATICA\n"); 
 }
 void ingreso_valores(int (&coef)[3]) //funcion que pide al usuario los valores de los coeficientes. Usa paso de por referencia del arreglo de coeficientes
@@ -149,15 +149,15 @@ void repeticion(bool &repe) //funcion que pregunta al usuario si se desea salir 
 {
 	CONT = 4; //Reseteo de la variable global
 	presentacion();
-	char auxi[3];
-	int nume = 0;
+	char auxi[3]; //variable auxiliar 
+	int nume = 0; //variable que habilita la entrada al ciclo while de la siguietne linea
 	while(nume < 1 || nume > 2)
 	{
 		gotoxy(2, ++CONT); printf("Desea ingresar una nueva ecuacion.");
 		gotoxy(2, ++CONT); printf("[1] Si");
 		gotoxy(2, ++CONT); printf("[2] No");
 		gotoxy(2, ++CONT); printf("Elija una opcion: ");
-		gets(auxi);
+		gets(auxi); //funcion que recepta lo que el usuario ingresa por teclado y lo guarda en la variable del parametro(auxi)
 		nume = atoi(auxi);
 		if(nume < 1 || nume > 2)
 		{
@@ -219,7 +219,7 @@ bool verificacion(char *cade) //Fuente: ChatGPT
 	}	
 	return(veri);
 }
-char* imprimir_coeficiente(int coef) //funcion que
+char* imprimir_coeficiente(int coef) //funcion que muestra en la pantalla los coeficientes incluidos dentro de la ecuacion cuadratica
 {
 	char* resultado = (char*)malloc(12); //malloc() consultada en ChatGPT
 	if(coef < 0)
@@ -233,4 +233,3 @@ char* imprimir_coeficiente(int coef) //funcion que
 		return(resultado);
 	}
 }
-
