@@ -101,10 +101,11 @@ int verificacion_coeficiente(int colu)
 			return(Coef);
 		}
 	}
-	operaciones
+	//operaciones
 }
+/*
 void operaciones()
 {
 	float disc =
 }
-
+*/
