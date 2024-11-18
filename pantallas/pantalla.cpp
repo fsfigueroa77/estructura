@@ -1,60 +1,63 @@
 /*
-dimensiones: 160x40
+
 */
 
 //ARCHIVOS CABECERA
 #include <rosian.h> //CABECERAS STDIO, CONIO Y WINDOWS YA INCLUIDAS
 //DECLARACION DE FUNCIONES DE USUARIO
 void pantalla_bienvenida();
-void marco_personalizado();
+void marco_personalizado(int col1, int fil1, int col2, int fil2, int cola, int colb);
 //CUERPO DEL PROGRAMA
 int main()
 {
-	pantalla_bienvenida();
+	pantalla_bienvenida();	
 	getch();
 }
 //FUNCIONES DE USUARIO
 void pantalla_bienvenida()
 {
-	marco_personalizado();
-}
-
-void marco_personalizado()
-{
-	int hori;
-	int vert;	
 	
-	for(hori = 0; hori < 160; hori++)
+	marco_personalizado(0, 0, 160, 40, 3, 4);
+	letrare("TRENDXPRESS", 3, 21, 17);
+	ct(4); etiqueta("Creado por: Felipe Figueroa Cevallos", 'I', 2, 38, 156);
+	ct(3); etiqueta("Presione [ENTER] para continuar...", 'D', 81, 38, 76);
+	
+}
+void marco_personalizado(int col1, int fil1, int col2, int fil2, int cola, int colb)
+{
+	int colu;
+	int fila;
+	for(colu = col1; colu < col2; colu++)
 	{
-		for(vert = 0; vert < 40; vert++)
+		for(fila = fil1; fila < fil2; fila++)
 		{
-			if(hori == 0 || vert == 0)
+			if(colu == col1 || colu == (col1 + 1) || fila == fil1)
 			{
-				if(hori < 80 && vert < 20)
+				if(colu < ((col1 + col2 + 1) / 2)  && fila < ((fil1 + fil2) / 2))
 				{
-					ct(11);
-					poscf(hori, vert); printf("%c",178);
+					ct(colb);
+					poscf(colu, fila); printf("%c",219);
 				}
 				else
 				{
-					ct(1);
-					poscf(hori, vert); printf("%c",178);
+					ct(cola);
+					poscf(colu, fila); printf("%c",219);
 				}
-								
 			}
-			if(hori == 159 || vert == 39)
+			if(colu == (col2 - 1) || colu == (col2 - 2) || fila == (fil2 - 1))
 			{
-				if(hori > 80 && vert > 20)
+				if(colu > ((col1 + col2 - 1) / 2)  && fila > ((fil1 + fil2 - 1) / 2))
 				{
-					ct(11);
-					poscf(hori, vert); printf("%c",178);
+					ct(colb);
+					poscf(colu, fila); printf("%c",219);
 				}
 				else
 				{
-					ct(1);
-					poscf(hori, vert); printf("%c",178);
-				}				
-			}			
-		}		
+					ct(cola);
+					poscf(colu, fila); printf("%c",219);
+				}
+			}
+		}
 	}
 }
+
