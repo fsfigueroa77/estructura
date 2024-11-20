@@ -1,5 +1,6 @@
 /*
-
+DESARROLLADOR: FELIPE FIGUEROA CEVALLOS
+TEMA: ELABORACION DE PANTALLA
 */
 
 //ARCHIVOS CABECERA
@@ -15,11 +16,11 @@ int main()
 }
 //FUNCIONES DE USUARIO
 void pantalla_bienvenida()
-{
-	
+{	
 	marco_personalizado(0, 0, 160, 40, 3, 4);
-	letrare("TRENDXPRESS", 3, 21, 17);
-	ct(4); etiqueta("Creado por: Felipe Figueroa Cevallos", 'I', 2, 38, 156);
+	letrare("TRENDXPRESS", 4, 41, 17);
+	ct(3); etiqueta("-Innovando la moda con tecnologia-", 'I', 41, 23, 156);
+	ct(2); etiqueta("Creado por: Felipe Figueroa Cevallos", 'I', 2, 38, 156);
 	ct(3); etiqueta("Presione [ENTER] para continuar...", 'D', 81, 38, 76);
 	
 }
