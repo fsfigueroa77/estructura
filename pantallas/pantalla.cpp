@@ -2,15 +2,16 @@
 DESARROLLADOR: FELIPE FIGUEROA CEVALLOS
 TEMA: ELABORACION DE PANTALLA
 */
-
 //ARCHIVOS CABECERA
 #include <rosian.h> //CABECERAS STDIO, CONIO Y WINDOWS YA INCLUIDAS
 //DECLARACION DE FUNCIONES DE USUARIO
-void pantalla_bienvenida();
 void marco_personalizado(int col1, int fil1, int col2, int fil2, int cola, int colb);
+void pantalla_bienvenida();
 //CUERPO DEL PROGRAMA
 int main()
 {
+	system("title TRENDXPRESS");
+	system("mode on: cols=160 lines=40");
 	pantalla_bienvenida();	
 	getch();
 }

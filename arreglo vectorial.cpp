@@ -15,11 +15,10 @@ void pantalla_presentacion();
 void ingreso_estudiantes();
 void mostrar_estudiantes();
 void borrar_pantalla(int iniF, int iniC, int finF, int finC);
-//CONSTANTES
+//DECLARACION DE VARIABLES
 const int FILA = 10;
 const int COLU = 2;
 const int PROF = 20;
-//ARREGLO
 char NOMB[FILA][COLU][PROF];
 //CUERPO DEL PROGRAMA
 int main()
@@ -27,7 +26,7 @@ int main()
 	interfaz();
 	pantalla_bienvenida();
 	pantalla_ingreso();
-	pantalla_presentacion();	
+	pantalla_presentacion();
 	
 	getch();
 }
@@ -42,28 +41,27 @@ void interfaz()
 }
 void pantalla_bienvenida()
 {	
-	int line = 17; //VARIABLE QUE REPRESENTA LA FILA DE INICIO DE IMPRESION DE LAS LETRAS
-	borrar_pantalla(35, 4, 124, 35); //BORRADO DE PANTALLA
-		
+	int line = 12; //VARIABLE QUE REPRESENTA LA FILA DE INICIO DE IMPRESION DE LAS LETRAS
+	borrar_pantalla(35, 4, 124, 35); //BORRADO DE PANTALLA		
 	ct(7); //COLOR BLANCO
-	etiqueta("UNIVERSIDAD DE GUAYAQUIL", 'C', 35, line++, 124 - 35);
-	etiqueta("FACULTAD DE CIENCIAS MATEMATICAS Y FISICAS", 'C', 35, line++, 123 - 34);
-	etiqueta("TECNOLOGIA DE LA INFORMACION", 'C', 35, line++, 123 - 34);
-	etiqueta("FELIPE SANTIAGO FIGUEROA CEVALLOS", 'C', 35, line++, 123 - 34);
-	etiqueta("SEGUNDO SEMESTRE", 'C', 35, line++, 123 - 34);
-	etiqueta("TIN-S-VE-2-9", 'C', 35, line++, 123 - 34);
+	etiqueta("UNIVERSIDAD DE GUAYAQUIL", 'C', 35, line += 2, 124 - 35);
+	etiqueta("FACULTAD DE CIENCIAS MATEMATICAS Y FISICAS", 'C', 35, line += 2, 123 - 34);
+	etiqueta("TECNOLOGIA DE LA INFORMACION", 'C', 35, line += 2, 123 - 34);
+	etiqueta("FELIPE SANTIAGO FIGUEROA CEVALLOS", 'C', 35, line += 2, 123 - 34);
+	etiqueta("SEGUNDO SEMESTRE", 'C', 35, line += 2, 123 - 34);
+	etiqueta("TIN-S-VE-2-9", 'C', 35, line += 2, 123 - 34);
 	etiqueta("Presione [ENTER] para continuar...", 'D', 35, 35, 124 - 35);
 	getch();
 }
 void pantalla_ingreso()
 {
 	borrar_pantalla(35, 4, 124, 35);
-	etiqueta("ESTUDIANTES DE LA CARRERA DE TECNOLOGIA DE LA INFORMACION", 'C', 35, 6, 89);	
+	etiqueta("ESTUDIANTES DE LA CARRERA DE TECNOLOGIA DE LA INFORMACION", 'C', 35, 6, 89);
 	ct(3); //COLOR AMARILLO
 	marcold(35, 4, 124, 8);
 	marcold(35, 9, 124, 35);
 	ct(7); //COLOR BLANCO
-	ingreso_estudiantes();	
+	ingreso_estudiantes();
 	etiqueta("INGRESOS EXITOSOS", 'C', 36, 30, 123 - 36);
 	etiqueta("Presione [ENTER] para continuar...", 'D', 36, 34, 123 - 36);
 	getch();
@@ -109,7 +107,6 @@ void ingreso_estudiantes()
 			strcpy(NOMB[fila][colu], auxi);			
 		}
 	}
-	
 }
 void mostrar_estudiantes()//FALTA ESTO DE AQUI
 {
