@@ -16,6 +16,7 @@ int main()
 	getch();
 	system("cls");
 	system("acceso.exe");
+	return(0);
 }
 //FUNCIONES DE USUARIO
 void pantalla_bienvenida()
